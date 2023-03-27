@@ -1,0 +1,26 @@
+CREATE TABLE Person (
+id_person tinyint(10) unsigned NOT NULL AUTO_INCREMENT,
+name tinytext NOT NULL,
+email tinytext NOT NULL,
+date date NOT NULL,
+gender tinytext NOT NULL,
+limb tinyint(3) unsigned NOT NULL,
+biography tinytext NOT NULL,
+signed tinytext NOT NULL,
+PRIMARY KEY (id_person)
+);
+
+
+CREATE TABLE Connection (
+ id int(10) unsigned NOT NULL AUTO_INCREMENT,
+ id_person int(10) unsigned NOT NULL,
+ id_abil int(10) unsigned NOT NULL,
+ PRIMARY KEY (id)
+);
+
+
+CREATE TABLE Ability (
+ id_abil int(10) unsigned NOT NULL AUTO_INCREMENT,
+ superpowers tinytext NOT NULL,
+ PRIMARY KEY (id_abil)
+);
