@@ -93,39 +93,37 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             setcookie('email_value', $_POST['email'], time() + 31 * 24 * 60 * 60);
         }
     }
-    if (empty($_POST['date'])) {
-        setcookie('date_error', '1', time() + 24 * 60 * 60);
-        $errors = TRUE;
-    } else {
-        if (!preg_match('/^[1-2][0|9|8][0-9][0-9]-[0-1][0-9]-[0-3][0-9]+$/', $_POST['date'])) {
-            setcookie('date_error', '2', time() + 24 * 60 * 60);
-            $errors = TRUE;
-        } else {
-            setcookie('date_value', $_POST['date'], time() + 31 * 24 * 60 * 60);
-        }
-    }
-    if (empty($_POST['gender'])) {
-        setcookie('gender_error', '1', time() + 24 * 60 * 60);
-        $errors = TRUE;
-    } else {
-        if (!preg_match('/^\d+$/', $_POST['gender'])) {
-            setcookie('gender_error', '2', time() + 24 * 60 * 60);
-            $errors = TRUE;
-        } else {
-            setcookie('gender_value', $_POST['gender'], time() + 31 * 24 * 60 * 60);
-        }
-    }
-    if (empty($_POST['limb'])) {
-        setcookie('limb_error', '1', time() + 24 * 60 * 60);
-        $errors = TRUE;
-    } else {
-        if (!preg_match('/^\d+$/', $_POST['limb'])) {
-            setcookie('limb_error', '2', time() + 24 * 60 * 60);
-            $errors = TRUE;
-        } else {
-            setcookie('limb_value', $_POST['limb'], time() + 31 * 24 * 60 * 60);
-        }
-    }
+    if (empty($_POST['date'])) { setcookie('date_error', '1', time() + 24 * 60 * 60); $errors = TRUE; }
+            else
+            {
+                if ($_POST['date'] == "0001-01-01")
+                {
+                    setcookie('date_error', '2', time() + 24 * 60 * 60);
+                    $errors = TRUE;
+                }
+                else setcookie('date_value', $_POST['date'], time() + 60 * 60 * 24 * 31);
+            }
+
+    if (empty($_POST['gender'])) { setcookie('gender_error', '1', time() + 24 * 60 * 60); $errors = TRUE; }
+            else
+            {
+                if ($_POST['gender'] != "Ж" && $_POST['gender'] != "М")
+                {
+                    setcookie('gender_error', '2', time() + 24 * 60 * 60);
+                    $errors = TRUE;
+                }
+                else setcookie('gender_value', $_POST['gender'], time() + 60 * 60 * 24 * 31);
+            }
+    if (empty($_POST['limb'])) { setcookie('limb_error', '1', time() + 24 * 60 * 60); $errors = TRUE; }
+            else
+            {
+                if ($_POST['limb'] != 3 && $_POST['limb'] != 4 && $_POST['limb'] != 5)
+                {
+                    setcookie('limb_error', '2', time() + 24 * 60 * 60);
+                    $errors = TRUE;
+                }
+                else setcookie('limb_value', $_POST['limb'], time() + 60 * 60 * 24 * 31);
+            }
     if (empty($_POST['superpowers'])) {
         setcookie('superpowers_error', '1', time() + 24 * 60 * 60);
         $errors = TRUE;
@@ -140,9 +138,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     }
 
     setcookie('biography_value', $_POST['biography'], time() + 31 * 24 * 60 * 60);
-    /*
-    }
-    */
+
+
     if (empty($_POST['signed'])) {
         setcookie('signed_error', '1', time() + 24 * 60 * 60);
         $errors = TRUE;
@@ -169,7 +166,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         setcookie('biography_error', '', 100000);
         setcookie('signed_error', '', 100000);
     }
-     //*************************
+    //*************************
 
     $user = 'u52863';
     $pass = '7320376';

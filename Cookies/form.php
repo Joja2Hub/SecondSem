@@ -56,13 +56,13 @@ if (!empty($messages)) {
         } ?>">
             <br>Пол:
             <label class="form_label labe">
-                <input type="radio" name="gender" value=1 <?php if ($values['gender'] == 'М') {
+                <input type="radio" name="gender" value= М <?php if ($values['gender'] == 'М') {
                     print 'checked="checked"';
                 } ?>>
                 женский
             </label>
             <label class="form_label labe">
-                <input type="radio" name="gender" value=2 <?php if ($values['gender'] == 'Ж') {
+                <input type="radio" name="gender" value= Ж <?php if ($values['gender'] == 'Ж') {
                     print 'checked="checked"';
                 } ?>>
                 мужской
@@ -73,34 +73,19 @@ if (!empty($messages)) {
         } ?>">
             <br>Количество конечностей:<br>
             <label class="form_label">
-                <input type="radio" name="limb" value=1 <?php if ($values['limb'] == 1) {
-                    print 'checked="checked"';
-                } ?>>
-                1
-            </label>
-            <label class="form_label">
-                <input type="radio" name="limb" value=2 <?php if ($values['limb'] == 2) {
-                    print 'checked="checked"';
-                } ?>>
-                2
-            </label>
-            <label class="form_label">
                 <input type="radio" name="limb" value=3 <?php if ($values['limb'] == 3) {
                     print 'checked="checked"';
-                } ?>>
-                3
+                } ?>> 3
             </label>
             <label class="form_label">
-                <input type="radio" name="limb" value=4 <?php if ($values['limb'] == 4 or empty($values['limb'])) {
+            <input type="radio" name="limb" value=4 <?php if ($values['limb'] == 4 or empty($values['limb'])) {
                     print 'checked="checked"';
-                } ?>>
-                4
+                } ?>> 4
             </label>
             <label class="form_label">
                 <input type="radio" name="limb" value=5 <?php if ($values['limb'] == 5) {
                     print 'checked="checked"';
-                } ?>>
-                5
+                } ?>> 5
             </label>
         </div>
 
